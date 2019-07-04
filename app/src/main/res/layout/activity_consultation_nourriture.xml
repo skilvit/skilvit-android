@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/linearLayout_n_date">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/label_date"
+                android:id="@+id/label_date"
+                android:layout_above="@+id/heure_entree"
+                android:layout_alignParentStart="true" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/date_entree"
+                android:editable="false"
+                android:textSize="9sp"
+                android:layout_below="@+id/titre_visu_entree"
+                android:layout_toEndOf="@+id/label_date" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout_n_heure"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/linearLayout_n_date"
+            android:layout_toStartOf="@+id/linearLayout3">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/label_heure"
+                android:id="@+id/label_heure"
+                android:layout_below="@+id/date_entree"
+                android:layout_alignParentStart="true"
+                android:layout_gravity="center" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/heure_entree"
+                android:editable="false"
+                android:textSize="9sp"
+                android:layout_below="@+id/date_entree"
+                android:layout_toEndOf="@+id/entree_situation" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/texte_repas"
+            android:id="@+id/texte_repas"
+            android:editable="true"
+            android:layout_below="@+id/linearLayout_n_date"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rg_nourriture"
+            style="@style/option_style">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/checkbutton_petit_dejeuner"
+                android:id="@+id/checkbutton_petit_dejeuner" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/checkbutton_dejeuner"
+                android:id="@+id/checkbutton_dejeuner" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/checkbutton_gouter"
+                android:id="@+id/checkbutton_gouter" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/checkbutton_diner"
+                android:id="@+id/checkbutton_diner" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/checkbutton_grignotage"
+                android:id="@+id/checkbutton_grignotage" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/texte_nourriture"
+            android:id="@+id/texte_nourriture"
+            android:layout_alignBottom="@+id/entree_nourriture"
+            android:layout_alignStart="@+id/entree_repas"
+            android:layout_alignEnd="@+id/texte_nourriture"
+            android:layout_alignTop="@+id/entree_repas"
+            android:layout_gravity="center" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/entree_nourriture"
+            android:layout_above="@+id/bouton_enregistrer"
+            android:layout_alignStart="@+id/bouton_enregistrer"
+            android:layout_alignEnd="@+id/bouton_retour"
+            android:layout_gravity="center"
+            android:inputType="text" />
+
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activer_modification_situation"
+            android:id="@+id/bouton_activation_modification" />
+
+        <Button
+            android:id="@+id/bouton_enregistrer_modification"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="@string/bouton_enregistrer_modification" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bouton_suprimmer_entree"
+            android:id="@+id/bouton_suprimmer_entree"
+            android:enabled="true" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bouton_entree_vers_liste"
+            android:id="@+id/bouton_entree_vers_liste" />
+
+
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>

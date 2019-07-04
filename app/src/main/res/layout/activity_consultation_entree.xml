@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="fill_parent"-->
+    <!--android:nestedScrollingEnabled="false"-->
+    <!--android:orientation="vertical">-->
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView android:text="@string/titre_creation_entree" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/titre_visu_entree"
+                android:layout_gravity="center" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="46dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/label_date"
+                    android:id="@+id/label_date"
+                    android:layout_above="@+id/heure_entree"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="center"
+                    android:layout_margin="7dp" />
+
+                <EditText
+                    android:id="@+id/texte_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="7dp"
+                    android:editable="false"
+                    android:padding="5dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/label_heure"
+                    android:id="@+id/label_heure"
+                    android:layout_below="@+id/date_entree"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="7dp" />
+
+                <EditText
+                    android:id="@+id/texte_heure"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:editable="false"
+                    android:padding="5dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/annonce_situation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/heure_entree"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="7dp"
+                    android:text="@string/entree_situation"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <EditText
+                    android:id="@+id/texte_situation"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:inputType="text"
+                    android:padding="5dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/annonce_sensations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/entree_situation"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="7dp"
+                    android:text="@string/annonce_emotion_sensation"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <EditText
+                    android:id="@+id/texte_emotions_sensations"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:inputType="text"
+                    android:padding="5dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/annonce_intensite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/entree_emotions_sensations"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="7dp"
+                    android:text="@string/annonce_intensite"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <EditText
+                    android:id="@+id/texte_intensite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:padding="5dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout_consultation_entree_intensite"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.81"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/annonce_pensees"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/annonce_intensite"
+                        android:layout_alignParentStart="true"
+                        android:layout_margin="7dp"
+                        android:text="@string/annonce_pensee"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <EditText
+                        android:id="@+id/texte_pensees"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:inputType="text"
+                        android:padding="5dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--<LinearLayout-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:weightSum="1">-->
+
+                <!--<LinearLayout-->
+                    <!--android:orientation="vertical"-->
+                    <!--android:layout_width="fill_parent"-->
+                    <!--android:layout_height="75dp">-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="191dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:textAppearance="?android:attr/textAppearanceSmall"-->
+                        <!--android:text="@string/annonce_taux_croyance"-->
+                        <!--android:id="@+id/annonce_taux_croyance"-->
+                        <!--android:padding="5dp"-->
+                        <!--android:layout_margin="7dp" />-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/entree_taux_croyance"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_margin="7dp"-->
+                        <!--android:editable="true"-->
+                        <!--android:inputType="numberSigned"-->
+                        <!--android:textSize="10sp" />-->
+
+                <!--</LinearLayout>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="80dp"-->
+                <!--android:weightSum="1">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="88dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textAppearance="?android:attr/textAppearanceSmall"-->
+                    <!--android:text="@string/annonce_pensee_alternative"-->
+                    <!--android:id="@+id/annonce_pensee_alternative"-->
+                    <!--android:padding="5dp"-->
+                    <!--android:layout_margin="7dp" />-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/entree_pensee_alternative"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="7dp"-->
+                    <!--android:layout_weight="0.80"-->
+                    <!--android:inputType="text"-->
+                    <!--android:textSize="10sp" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="121dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textAppearance="?android:attr/textAppearanceSmall"-->
+                    <!--android:text="@string/annonce_taux_croyance_actualise"-->
+                    <!--android:id="@+id/annonce_taux_croyance_actualise"-->
+                    <!--android:padding="5dp"-->
+                    <!--android:layout_margin="7dp" />-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/entree_taux_croyance_alternative"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="7dp"-->
+                    <!--android:editable="true"-->
+                    <!--android:enabled="true"-->
+                    <!--android:inputType="numberSigned"-->
+                    <!--android:textSize="10sp" />-->
+            <!--</LinearLayout>-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/annonce_comportement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/annonce_pensees"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="7dp"
+                    android:padding="5dp"
+                    android:text="@string/annonce_comportement"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <EditText
+                    android:id="@+id/texte_comportement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:inputType="text"
+                    android:padding="5dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+
+            </LinearLayout>
+
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/activer_modification_situation"
+                android:id="@+id/bouton_activation_modification" />
+
+            <Button
+                android:id="@+id/bouton_enregistrer_modification"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="@string/bouton_enregistrer_modification" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bouton_suprimmer_entree"
+                android:id="@+id/bouton_suprimmer_entree"
+                android:enabled="true" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bouton_entree_vers_liste"
+                android:id="@+id/bouton_entree_vers_liste" />
+
+        </LinearLayout>
+    </ScrollView>
+
+<!--</LinearLayout>-->

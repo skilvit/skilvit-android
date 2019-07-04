@@ -1,0 +1,22 @@
+build/
+
+# built application
+*.apk
+*.ap_
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+
+# Local files
+local.properties
+
+# Android Studio
+*.iml
+.idea/
+.gradle/
+
+keystore.properties

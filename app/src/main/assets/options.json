@@ -1,0 +1,9 @@
+{
+  "fiche_activite_physique": true,
+  "fiche_alimentation": true,
+  "fiche_glycemie": true,
+  "fiche_poids": true,
+  "fiche_prise_medicament": true,
+  "fiche_situation": true,
+  "fiche_sommeil": true
+}

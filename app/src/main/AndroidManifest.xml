@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="skilvit.fr">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:fullBackupContent="@xml/backup_descriptor"
+        android:icon="@mipmap/ic_skilvit"
+        android:label="boulot"
+        android:theme="@style/AppTheme">
+
+        <!-- android:theme="@style/Theme.AppCompat"> -->
+
+        <activity
+            android:name="skilvit.fr.activites.MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="skilvit.fr.activites.ConsultationListeActivity"
+            android:label="@string/title_activity_consultation_liste"></activity>
+        <activity
+            android:name="skilvit.fr.activites.ConsultationEntreeActivity"
+            android:label="@string/title_activity_consultation_entree"></activity>
+        <activity
+            android:name="skilvit.fr.activites.CreationSituationActivity"
+            android:label="@string/title_activity_creation_entree"></activity>
+        <activity
+            android:name="skilvit.fr.in_out.ExportationEntreesActivity"
+            android:label="@string/title_activity_exportation_entrees"></activity>
+        <activity
+            android:name="skilvit.fr.activites.RassuranceActivity"
+            android:label="@string/title_activity_rassurance"></activity>
+        <activity
+            android:name="skilvit.fr.activites.PriseMedicamentActivity"
+            android:label="@string/title_activity_prise_medicament"></activity>
+        <activity
+            android:name="skilvit.fr.in_out.ImportationEntreeActivity"
+            android:label="@string/title_activity_importation_entree"></activity>
+        <activity
+            android:name="skilvit.fr.activites.EntreesPDFActivity"
+            android:label="@string/title_activity_vue_pdf_entrees"></activity>
+        <activity
+            android:name="skilvit.fr.activites.OptionsActivity"
+            android:label="@string/title_activity_options"></activity>
+        <activity
+            android:name="skilvit.fr.activites.Notice"
+            android:label="@string/title_activity_notice"></activity>
+        <activity
+            android:name="skilvit.fr.activites.SommeilActivity"
+            android:label="@string/title_activity_sommeil"></activity>
+        <activity
+            android:name="skilvit.fr.activites.ActivitePhysiqueActivity"
+            android:label="@string/title_activity_activite_physique"></activity>
+        <activity
+            android:name="skilvit.fr.activites.AlimentationActivity"
+            android:label="@string/title_activity_nourriture"></activity>
+        <activity
+            android:name="skilvit.fr.activites.GlycemieActivity"
+            android:label="@string/title_activity_glycemie"></activity>
+        <activity
+            android:name="skilvit.fr.activites.PoidsActivity"
+            android:label="@string/title_activity_poids"></activity>
+        <activity
+            android:name="skilvit.fr.activites.HelpActivity"
+            android:label="@string/title_activity_help"></activity>
+        <activity
+            android:name="skilvit.fr.activites.EntryConsultation.ConsultationActivitePhysiqueActivity"
+            android:label="Consultation Activité Physique"></activity>
+        <activity
+            android:name="skilvit.fr.activites.EntryConsultation.ConsultationAlimentationActivity"
+            android:label="Consultation alimentation"></activity>
+        <activity
+            android:name="skilvit.fr.activites.EntryConsultation.ConsultationGlycemieActivity"
+            android:label="Glycémie consultation"></activity>
+        <activity
+            android:name="skilvit.fr.activites.EntryConsultation.ConsultationPriseMedicamentActivity"
+            android:label="Prise de médicament consultation"></activity>
+        <activity
+            android:name="skilvit.fr.activites.EntryConsultation.ConsultationSommeilActivity"
+            android:label="Sommeil Consultation"></activity>
+        <activity android:name="skilvit.fr.activites.EntryConsultation.ConsultationPoidsActivity"
+            android:label="Poids Consultation"></activity>
+    </application>
+
+</manifest>

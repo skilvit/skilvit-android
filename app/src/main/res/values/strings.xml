@@ -1,0 +1,167 @@
+<resources>
+    <string name="app_name" translatable="false">Skilvit</string>
+    <!--Accueil-->
+    <string name="titre_accueil">Accueil</string>
+    <string name="action_help">Aide</string>
+    <string name="bouton_situation">Situation</string>
+    <string name="bouton_dosage_medicament">Prise de médicament</string>
+    <string name="bouton_activite_physique">Activité physique</string>
+    <string name="bouton_sommeil">Sommeil</string>
+    <string name="bouton_alimentation">Alimentation</string>
+    <string name="bouton_glycemie">Glycémie</string>
+    <string name="bouton_poids">Poids</string>
+    <string name="bou_consulter_situation">Consulter mes situations</string>
+    <string name="bou_exporter_entrees">Exporter les entrées</string>
+    <string name="bouton_importer_entrees">Importer des entrées </string>
+    <string name="bouton_importaion_retour" translatable="true">Retour</string>
+    <string name="title_activity_consultation_entree">Consultation d\'une Situation</string>
+    <string name="title_activity_creation_entree">Situation - création</string>
+    <string name="title_activity_exportation_entrees">Exportation des données</string>
+    <string name="bouton_notice">Notice</string>
+
+    <!--Liste des fiches-->
+    <string name="title_activity_consultation_liste">Liste des entrées</string>
+    <string name="titre_liste_entrees">Liste des entrées</string>
+    <string name="bouton_entree_vers_liste">Retour</string>
+    <string name="bouton_liste_vers_accueil">Retour</string>
+
+
+    <!--Option-->
+    <string name="option_fiches_visibles">Fiches visibles</string>
+
+    <!--<string name="titre_creation_situation">Nouvelle situation</string>-->
+
+    <!--Situation-->
+    <string name="label_date">Date : </string>
+    <string name="label_heure">Heure : </string>
+    <string name="annonce_intensite">Intensité : </string>
+    <string name="annonce_pensee">Les pensées : </string>
+    <string name="annonce_comportement">Le comportement : </string>
+    <string name="entree_situation">Situation : </string>
+    <string name="annonce_emotion_sensation">Emotions et sensations : </string>
+    <string name="title_activity_rassurance">RassuranceActivity</string>
+    <string name="enregistrer_nouvelle_situation">Enregistrer</string>
+    <string name="bouton_enregistrer_modification">Valider la modification</string>
+    <string name="bouton_suprimmer_situation">Supprimer</string>
+    <string name="bouton_recuperation">Récupérer les données</string>
+    <string name="annonce_taux_croyance">Taux de croyance</string>
+    <string name="annonce_taux_croyance_actualise">Taux de croyance actualisé</string>
+    <string name="annonce_pensee_alternative">Pensées alternatives</string>
+    <string name="bouon_options">Options</string>
+    <string name="title_activity_options">Options</string>
+    <string name="title_activity_notice">Notice</string>
+
+
+    <!--Exportation-->
+    <string name="bouton_exporter_entree_JSON">Exporter les Entrées au format JSON </string>
+    <string name="bouton_exporter_pm_JSON">Exporter les Prises de Médicament au format JSON</string>
+    <string name="bouton_exportation_vers_accueil">Retour</string>
+    <string name="bouton_creation_situation_vers_accueil">Retour</string>
+    <string name="bouton_exporter_HTML">Exporter en HTML</string>
+    <string name="bouton_exporter_JSON">Exporter en JSON</string>
+    <string name="bouton_exporter_entree_PDF">Exporter en PDF</string>
+
+    <!--Fiche prise de médicament-->
+    <string name="title_activity_prise_medicament">Prise de Médicament</string>
+    <string name="texte_medicament_pris">Médicament pris</string>
+    <string name="texte_dosage_pris">Dosage</string>
+    <string name="bouton_enregistrer">Enregistrer</string>
+    <string name="bouton_retour">Retour</string>
+
+    <!--Fiche Importation des données-->
+    <string name="title_activity_importation_entree">Importation des entrées</string>
+
+
+    <string name="bouton_creation_entree_vers_accueil">Retour</string>
+    <string name="bouton_suprimmer_entree">Supprimer</string>
+    <string name="enregistrer_nouvelle_entree">Enregistrer</string>
+    <string name="nouvelle_situation">Nouvelle Situation</string>
+    <string name="titre_creation_entree">Situation</string>
+    <string name="title_activity_vue_pdf_entrees">PDF</string>
+
+
+    <string name="titre_creation_situation">Situation</string>
+    <string name="heure_incorrecte">Format de l\'heure incorrect</string>
+    <string name="date_incorrecte">Format de la date incorrect</string>
+    <string name="a_corriger">Vous devez corriger ça</string>
+    <string name="activer_modification_situation">Activer la modification</string>
+    <string name="desactiver_modification_situation">Désactiver la modification</string>
+    <string name="suppression_fiche_demande_confirmation">Voulez-vous supprimer cette fiche ?</string>
+    <string name="suppression_fiche_confirmation">Supprimer</string>
+    <string name="suppression_fiche_annulation">Annuler</string>
+    <string name="suppression_interrogation">Suppression </string>
+    <string name="demander_bonnes_valeurs">Vérifiez les valeurs</string>
+    <string name="demander_bonnes_dates_heures">pour la date et l\'heure</string>
+
+    <!--Fiches-->
+    <string name="title_activity_sommeil">Sommeil</string>
+    <string name="title_activity_activite_physique">Activité Physique</string>
+    <string name="title_activity_nourriture">Alimentation</string>
+    <string name="title_activity_glycemie">Glycémie</string>
+    <string name="title_activity_poids">Poids</string>
+
+
+    <!--Repas-->
+    <string name="texte_repas">Repas</string>
+    <string name="texte_nourriture">Nourriture</string>
+    <string name="checkbutton_petit_dejeuner">Petit-déjeûner</string>
+    <string name="checkbutton_dejeuner">Déjeûner</string>
+    <string name="checkbutton_gouter">Goûter</string>
+    <string name="checkbutton_diner">Dîner</string>
+    <string name="checkbutton_grignotage">Grignotage</string>
+
+
+    <!--Glycémie-->
+    <string name="texte_glycemie">Glycemie</string>
+
+    <!--Poids-->
+    <string name="texte_poids">Poids (en kg)</string>
+
+    <!--Activité Physique -->
+    <string name="texte_ap_sport">Sport</string>
+    <string name="texte_ap_duree">Durée</string>
+    <string name="texte_ap_difficulte">Difficulté</string>
+    <string name="texte_sommeil_commentaire">Commentaire</string>
+
+
+    <!--Sommeil-->
+    <string name="texte_date_heure_maintenant">Date et heure de maintenant</string>
+    <string name="texte_sommeil_coucher">Le coucher</string>
+    <string name="texte_sommeil_lever">Le lever</string>
+    <string name="bouton_exporter_txt">Exporter au format texte</string>
+    <string name="bouton_exporter_csv">Exporter au format CSV</string>
+    <string name="partager_email">Partager</string>
+    <string name="compte_rendu">Compte-rendu SKILVIT</string>
+    <string name="texte_compte_rendu">Veuillez trouver en pièce-jointe mes prises de notes sur ma santé.</string>
+    <string name="fichier_csv_exporte">Fichier CSV exporté</string>
+    <string name="fichier_csv_non_exporte">Fichier CSV non exporté</string>
+    <string name="fichier_txt_exporte">Fichier TXT exporté</string>
+    <string name="fichier_txt_non_exporte">Fichier TXT non exporté</string>
+    <string name="fichier_json_exporte">Fichier JSON exporté</string>
+    <string name="fichier_json_non_exporte">Fichier JSON non exporté</string>
+    <string name="share">Partager…</string>
+    <string name="generation_fichier_a_envoyer_impossible">Impossible de générer le fichier à envoyer</string>
+    <string name="fichier_pdf_exporte">Fichier PDF exporté</string>
+    <string name="ouvrir_fichier">Ouvrir le fichier</string>
+    <string name="no_app_found_to_open_this">Aucune application pour ouvrir un fichier PDF n\'a été trouvé</string>
+    <string name="furnished_data_incorrect">Les données fournies ne sont pas correctes.</string>
+    <string name="correct_importation">L\'importation s\'est bien passée.</string>
+    <string name="select_file">Sélectionner le fichier</string>
+    <string name="adresse_email">Adresse email</string>
+    <string name="date_format_incorrect">Format de la date incorrect</string>
+    <string name="destination_email_address">Adresse email du psychologue, médecin, praticien, etc</string>
+    <string name="please_choose_email_app">Veuillez choisir une application email</string>
+    <string name="title_activity_help">Aide</string>
+    <string name="activite_physique_aide">aide</string>
+    <string name="glycemie_aide">aide</string>
+    <string name="nourriture_aide">aide</string>
+    <string name="sommeil_aide">aide</string>
+    <string name="prise_medicament_aide">aide</string>
+    <string name="poids_aide">aide</string>
+    <string name="situation_aide">aide</string>
+    <string name="texte_sommeil_reveil_dans_nuit">Réveil dans la nuit</string>
+    <string name="texte_date_heure_evenement">Date et heure de l\'événement</string>
+    <string name="appbar_scrolling_view_behavior">\?</string>
+    <string name="afficher_liste_texte">Afficher liste</string>
+</resources>
+
