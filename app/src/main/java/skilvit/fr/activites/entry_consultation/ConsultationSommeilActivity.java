@@ -1,4 +1,4 @@
-package skilvit.fr.activites.EntryConsultation;
+package skilvit.fr.activites.entry_consultation;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TimePicker;
 
 import java.util.Locale;
@@ -22,28 +24,31 @@ import skilvit.fr.data_manager.DBManager;
 import skilvit.fr.data_manager.Date;
 import skilvit.fr.data_manager.Hour;
 import skilvit.fr.data_manager.ObservationDate;
-import skilvit.fr.data_manager.PriseMedicament;
+import skilvit.fr.data_manager.Sommeil;
 
-public class ConsultationPriseMedicamentActivity extends AppCompatActivity {
-    private static final  String TAG = ConsultationPriseMedicamentActivity.class.getSimpleName();
+public class ConsultationSommeilActivity extends AppCompatActivity {
+    private static final  String TAG = ConsultationSommeilActivity.class.getSimpleName();
 
     EditText texte_date;
     EditText texte_heure;
 
-    EditText entree_medicament_pris;
-    EditText entree_dosage_pris;
+    EditText entree_date_evenement;
+    EditText entree_heure_evenement;
+
+    RadioGroup evenement_sommeil;
+    EditText entree_commentaire;
 
     Button bouton_activer_desactiver_modification;
     Button bouton_enregistrer_modification;
     Button bouton_suprimmer_entree;
     Button bouton_entree_vers_liste;
-    boolean entrees_editables;
 
+    boolean entrees_editables;
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consultation_prise_medicament);
+        setContentView(R.layout.activity_consultation_sommeil);
 
         final int entree_id = getIntent().getIntExtra("entree_id", 0);
 
@@ -55,9 +60,9 @@ public class ConsultationPriseMedicamentActivity extends AppCompatActivity {
         texte_heure.setTag(texte_heure.getKeyListener());
         texte_heure.setKeyListener(null);
 
-        final DBManager db_manager = new DBManager(ConsultationPriseMedicamentActivity.this);
+        final DBManager db_manager = new DBManager(ConsultationSommeilActivity.this);
 
-        PriseMedicament e = db_manager.retrieve_one_prise_medicament(entree_id);
+        Sommeil e = db_manager.retrieve_one_sommeil(entree_id);
 
         if (e != null) {
             final ObservationDate obd = e.getObd();
@@ -66,7 +71,7 @@ public class ConsultationPriseMedicamentActivity extends AppCompatActivity {
             texte_date.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    DatePickerDialog datePickerDialog = new DatePickerDialog(ConsultationPriseMedicamentActivity.this,
+                    DatePickerDialog datePickerDialog = new DatePickerDialog(ConsultationSommeilActivity.this,
                             (view, year, month, dayOfMonth) -> texte_date.setText(String.format(Locale.FRANCE, "%d/%d/%d", dayOfMonth, month + 1, year)), obd.annee, obd.mois - 1, obd.jour);
                     datePickerDialog.show();
                 }
@@ -76,7 +81,7 @@ public class ConsultationPriseMedicamentActivity extends AppCompatActivity {
             texte_heure.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    TimePickerDialog timePickerDialog = new TimePickerDialog(ConsultationPriseMedicamentActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    TimePickerDialog timePickerDialog = new TimePickerDialog(ConsultationSommeilActivity.this, new TimePickerDialog.OnTimeSetListener() {
                         @Override
                         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                             texte_heure.setText(String.format(Locale.FRANCE, "%d:%d", hourOfDay, minute));
@@ -90,7 +95,7 @@ public class ConsultationPriseMedicamentActivity extends AppCompatActivity {
             texte_date.setOnFocusChangeListener((v, hasFocus) -> {
                 if (!hasFocus) {
                     if (!Date.isValidDate(texte_date.getText().toString())) {
-                        final AlertDialog.Builder builder = new AlertDialog.Builder(ConsultationPriseMedicamentActivity.this);
+                        final AlertDialog.Builder builder = new AlertDialog.Builder(ConsultationSommeilActivity.this);
                         String message = getString(R.string.a_corriger);
                         builder.setTitle(getString(R.string.date_incorrecte));
                         builder.setMessage(message);
@@ -102,7 +107,7 @@ public class ConsultationPriseMedicamentActivity extends AppCompatActivity {
             texte_heure.setOnFocusChangeListener((v, hasFocus) -> {
                 if (!hasFocus) {
                     if (!Hour.isValidHour(texte_heure.getText().toString())) {
-                        final AlertDialog.Builder builder = new AlertDialog.Builder(ConsultationPriseMedicamentActivity.this);
+                        final AlertDialog.Builder builder = new AlertDialog.Builder(ConsultationSommeilActivity.this);
                         String message = getString(R.string.heure_incorrecte);
                         builder.setTitle(getString(R.string.heure_incorrecte));
                         builder.setMessage(message);
@@ -111,7 +116,6 @@ public class ConsultationPriseMedicamentActivity extends AppCompatActivity {
                     }
                 }
             });
-
 
             bouton_activer_desactiver_modification = (Button) findViewById(R.id.bouton_activation_modification);
             bouton_activer_desactiver_modification.setOnClickListener(v -> {
@@ -124,18 +128,25 @@ public class ConsultationPriseMedicamentActivity extends AppCompatActivity {
                     texte_date.setKeyListener(null);
                     texte_heure.setTag(texte_heure.getKeyListener());
                     texte_heure.setKeyListener(null);
-                    entree_dosage_pris.setTag(entree_dosage_pris.getKeyListener());
-                    entree_dosage_pris.setKeyListener(null);
-                    entree_medicament_pris.setTag(entree_medicament_pris.getKeyListener());
-                    entree_medicament_pris.setKeyListener(null);
+                    entree_date_evenement.setTag(entree_date_evenement.getKeyListener());
+                    entree_date_evenement.setKeyListener(null);
+                    entree_heure_evenement.setTag(entree_heure_evenement.getKeyListener());
+                    entree_heure_evenement.setKeyListener(null);
+
+                    evenement_sommeil.setClickable(true);
+
+                    entree_commentaire.setTag(entree_commentaire.getKeyListener());
+                    entree_commentaire.setKeyListener(null);
 
                 } else {
                     bouton_activer_desactiver_modification.setText(getResources().getString(R.string.desactiver_modification_situation));
                     entrees_editables = true;
                     texte_date.setKeyListener((KeyListener) texte_date.getTag());
                     texte_heure.setKeyListener((KeyListener) texte_heure.getTag());
-                    entree_dosage_pris.setKeyListener((KeyListener) entree_dosage_pris.getTag());
-                    entree_medicament_pris.setKeyListener((KeyListener) entree_medicament_pris.getTag());
+                    entree_date_evenement.setKeyListener((KeyListener) entree_date_evenement.getTag());
+                    entree_heure_evenement.setKeyListener((KeyListener) entree_heure_evenement.getTag());
+                    entree_commentaire.setKeyListener((KeyListener) entree_commentaire.getTag());
+                    evenement_sommeil.setClickable(false);
                 }
                 Log.d(TAG, String.valueOf(entrees_editables));
             });
@@ -149,18 +160,22 @@ public class ConsultationPriseMedicamentActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     if (Date.isValidDate(texte_date.getText().toString()) &&
                             Hour.isValidHour(texte_heure.getText().toString())) {
-                        PriseMedicament nouvelle_pm;
-                        nouvelle_pm = new PriseMedicament(texte_date.getText().toString(),
+                        Sommeil nouveau_sommeil;
+                        RadioButton rb = (RadioButton) findViewById(evenement_sommeil.getCheckedRadioButtonId());
+
+                        nouveau_sommeil = new Sommeil(texte_date.getText().toString(),
                                 texte_heure.getText().toString(),
-                                entree_medicament_pris.getText().toString(),
-                                entree_dosage_pris.getText().toString());
-                        db_manager.update_pm(entree_id, nouvelle_pm);
-                        Intent i = new Intent(ConsultationPriseMedicamentActivity.this, ConsultationListeActivity.class);
+                                rb.getText().toString(),
+                                entree_date_evenement.getText().toString(),
+                                entree_heure_evenement.getText().toString(),
+                                entree_commentaire.getText().toString());
+                        db_manager.update_sommeil(entree_id, nouveau_sommeil);
+                        Intent i = new Intent(ConsultationSommeilActivity.this, ConsultationListeActivity.class);
                         startActivity(i);
                     }
                     else
                     {
-                        final AlertDialog.Builder builder = new AlertDialog.Builder(ConsultationPriseMedicamentActivity.this);
+                        final AlertDialog.Builder builder = new AlertDialog.Builder(ConsultationSommeilActivity.this);
                         String message = "Mettez des valeurs correctes";
                         builder.setTitle("Mettez des valeurs correctes");
                         builder.setMessage(message);
@@ -173,15 +188,15 @@ public class ConsultationPriseMedicamentActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    final AlertDialog.Builder builder = new AlertDialog.Builder(ConsultationPriseMedicamentActivity.this);
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(ConsultationSommeilActivity.this);
                     String message = getString(R.string.suppression_fiche_demande_confirmation);
                     builder.setTitle(getString(R.string.suppression_interrogation));
                     builder.setMessage(message);
                     builder.setPositiveButton(getString(R.string.suppression_fiche_confirmation), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            db_manager.delete_pm(entree_id);
-                            Intent i = new Intent(ConsultationPriseMedicamentActivity.this, ConsultationListeActivity.class);
+                            db_manager.delete_sommeil(entree_id);
+                            Intent i = new Intent(ConsultationSommeilActivity.this, ConsultationListeActivity.class);
                             startActivity(i);
                         }
                     });
@@ -195,7 +210,6 @@ public class ConsultationPriseMedicamentActivity extends AppCompatActivity {
                     dialog.show();
                 }
             });
-
 
 
             bouton_entree_vers_liste = (Button) findViewById(R.id.bouton_entree_vers_liste);

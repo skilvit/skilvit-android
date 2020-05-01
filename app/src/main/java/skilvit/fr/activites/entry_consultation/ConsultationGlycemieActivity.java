@@ -1,8 +1,9 @@
-package skilvit.fr.activites.EntryConsultation;
+package skilvit.fr.activites.entry_consultation;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.KeyListener;
@@ -19,19 +20,17 @@ import skilvit.fr.R;
 import skilvit.fr.activites.ConsultationListeActivity;
 import skilvit.fr.data_manager.DBManager;
 import skilvit.fr.data_manager.Date;
+import skilvit.fr.data_manager.Glycemie;
 import skilvit.fr.data_manager.Hour;
 import skilvit.fr.data_manager.ObservationDate;
-import skilvit.fr.data_manager.Poids;
 
-public class ConsultationPoidsActivity extends AppCompatActivity {
-    private static final  String TAG = ConsultationPoidsActivity.class.getSimpleName();
-
-    final int entree_id = getIntent().getIntExtra("entree_id", 0);
+public class ConsultationGlycemieActivity extends AppCompatActivity {
+    private static final  String TAG = ConsultationGlycemieActivity.class.getSimpleName();
 
     EditText texte_date;
     EditText texte_heure;
 
-    EditText entree_poids;
+    EditText entree_glycemie;
 
     Button bouton_activer_desactiver_modification;
     Button bouton_enregistrer_modification;
@@ -40,9 +39,11 @@ public class ConsultationPoidsActivity extends AppCompatActivity {
     boolean entrees_editables;
 
     @Override
-    protected void onCreate( Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consultation_poids);
+        setContentView(R.layout.activity_consultation_glycemie);
+
+        final int entree_id = getIntent().getIntExtra("entree_id", 0);
 
         texte_date = (EditText) findViewById(R.id.date_entree);
         texte_date.setTag(texte_date.getKeyListener());
@@ -52,13 +53,11 @@ public class ConsultationPoidsActivity extends AppCompatActivity {
         texte_heure.setTag(texte_heure.getKeyListener());
         texte_heure.setKeyListener(null);
 
-        entree_poids = (EditText) findViewById(R.id.entree_nourriture);
+        entree_glycemie = (EditText) findViewById(R.id.entree_glycemie);
 
+        final DBManager db_manager = new DBManager(ConsultationGlycemieActivity.this);
 
-
-        final DBManager db_manager = new DBManager(ConsultationPoidsActivity.this);
-
-        Poids e = db_manager.retrieve_one_poids(entree_id);
+        Glycemie e = db_manager.retrieve_one_glycemie(entree_id);
 
         if (e != null) {
             final ObservationDate obd = e.getObd();
@@ -67,7 +66,7 @@ public class ConsultationPoidsActivity extends AppCompatActivity {
             texte_date.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    DatePickerDialog datePickerDialog = new DatePickerDialog(ConsultationPoidsActivity.this,
+                    DatePickerDialog datePickerDialog = new DatePickerDialog(ConsultationGlycemieActivity.this,
                             (view, year, month, dayOfMonth) -> texte_date.setText(String.format(Locale.FRANCE, "%d/%d/%d", dayOfMonth, month + 1, year)), obd.annee, obd.mois - 1, obd.jour);
                     datePickerDialog.show();
                 }
@@ -77,7 +76,7 @@ public class ConsultationPoidsActivity extends AppCompatActivity {
             texte_heure.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    TimePickerDialog timePickerDialog = new TimePickerDialog(ConsultationPoidsActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    TimePickerDialog timePickerDialog = new TimePickerDialog(ConsultationGlycemieActivity.this, new TimePickerDialog.OnTimeSetListener() {
                         @Override
                         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                             texte_heure.setText(String.format(Locale.FRANCE, "%d:%d", hourOfDay, minute));
@@ -91,7 +90,7 @@ public class ConsultationPoidsActivity extends AppCompatActivity {
             texte_date.setOnFocusChangeListener((v, hasFocus) -> {
                 if (!hasFocus) {
                     if (!Date.isValidDate(texte_date.getText().toString())) {
-                        final AlertDialog.Builder builder = new AlertDialog.Builder(ConsultationPoidsActivity.this);
+                        final AlertDialog.Builder builder = new AlertDialog.Builder(ConsultationGlycemieActivity.this);
                         String message = getString(R.string.a_corriger);
                         builder.setTitle(getString(R.string.date_incorrecte));
                         builder.setMessage(message);
@@ -103,7 +102,7 @@ public class ConsultationPoidsActivity extends AppCompatActivity {
             texte_heure.setOnFocusChangeListener((v, hasFocus) -> {
                 if (!hasFocus) {
                     if (!Hour.isValidHour(texte_heure.getText().toString())) {
-                        final AlertDialog.Builder builder = new AlertDialog.Builder(ConsultationPoidsActivity.this);
+                        final AlertDialog.Builder builder = new AlertDialog.Builder(ConsultationGlycemieActivity.this);
                         String message = getString(R.string.heure_incorrecte);
                         builder.setTitle(getString(R.string.heure_incorrecte));
                         builder.setMessage(message);
@@ -124,15 +123,15 @@ public class ConsultationPoidsActivity extends AppCompatActivity {
                     texte_date.setKeyListener(null);
                     texte_heure.setTag(texte_heure.getKeyListener());
                     texte_heure.setKeyListener(null);
-                    entree_poids.setTag(entree_poids.getKeyListener());
-                    entree_poids.setKeyListener(null);
+                    entree_glycemie.setTag(entree_glycemie.getKeyListener());
+                    entree_glycemie.setKeyListener(null);
 
                 } else {
                     bouton_activer_desactiver_modification.setText(getResources().getString(R.string.desactiver_modification_situation));
                     entrees_editables = true;
                     texte_date.setKeyListener((KeyListener) texte_date.getTag());
                     texte_heure.setKeyListener((KeyListener) texte_heure.getTag());
-                    entree_poids.setKeyListener((KeyListener) entree_poids.getTag());
+                    entree_glycemie.setKeyListener((KeyListener) entree_glycemie.getTag());
                 }
                 Log.d(TAG, String.valueOf(entrees_editables));
             });
@@ -146,18 +145,17 @@ public class ConsultationPoidsActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     if (Date.isValidDate(texte_date.getText().toString()) &&
                             Hour.isValidHour(texte_heure.getText().toString())) {
-                        Poids nouveau_poids;
-
-                        nouveau_poids = new Poids(texte_date.getText().toString(),
+                        Glycemie nouvelle_glycemie;
+                        nouvelle_glycemie = new Glycemie(texte_date.getText().toString(),
                                 texte_heure.getText().toString(),
-                                entree_poids.getText().toString());
-                        db_manager.update_poids(entree_id, nouveau_poids);
-                        Intent i = new Intent(ConsultationPoidsActivity.this, ConsultationListeActivity.class);
+                                entree_glycemie.getText().toString());
+                        db_manager.update_glycemie(entree_id, nouvelle_glycemie);
+                        Intent i = new Intent(ConsultationGlycemieActivity.this, ConsultationListeActivity.class);
                         startActivity(i);
                     }
                     else
                     {
-                        final AlertDialog.Builder builder = new AlertDialog.Builder(ConsultationPoidsActivity.this);
+                        final AlertDialog.Builder builder = new AlertDialog.Builder(ConsultationGlycemieActivity.this);
                         String message = "Mettez des valeurs correctes";
                         builder.setTitle("Mettez des valeurs correctes");
                         builder.setMessage(message);
@@ -166,16 +164,33 @@ public class ConsultationPoidsActivity extends AppCompatActivity {
                     }
                 }
             });
-
-            bouton_entree_vers_liste = (Button) findViewById(R.id.bouton_entree_vers_liste);
-            bouton_entree_vers_liste.setOnClickListener(new View.OnClickListener() {
+            bouton_suprimmer_entree.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                Intent i = new Intent(ConsultationEntreeActivity.this, ConsultationListeActivity.class);
-//                startActivity(i);
-                    onBackPressed();
+
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(ConsultationGlycemieActivity.this);
+                    String message = getString(R.string.suppression_fiche_demande_confirmation);
+                    builder.setTitle(getString(R.string.suppression_interrogation));
+                    builder.setMessage(message);
+                    builder.setPositiveButton(getString(R.string.suppression_fiche_confirmation), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            db_manager.delete_glycemie(entree_id);
+                            Intent i = new Intent(ConsultationGlycemieActivity.this, ConsultationListeActivity.class);
+                            startActivity(i);
+                        }
+                    });
+                    builder.setNegativeButton(getString(R.string.suppression_fiche_annulation), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+                    final AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
             });
+
         }
     }
 
