@@ -38,7 +38,7 @@ public class PriseMedicamentActivity extends AppCompatActivity {
     Button bouton_enregistrer;
     Button bouton_afficher_liste;
     Button bouton_retour;
-    TextView texte_dernière_prise_medicament;
+    TextView texte_derniere_prise_medicament;
     PriseMedicament pm;
 
     @Override
@@ -53,7 +53,7 @@ public class PriseMedicamentActivity extends AppCompatActivity {
         bouton_enregistrer = (Button) findViewById(R.id.bouton_enregistrer);
         bouton_afficher_liste = findViewById(R.id.bouton_liste);
         bouton_retour = (Button) findViewById(R.id.bouton_retour);
-        texte_dernière_prise_medicament =
+        texte_derniere_prise_medicament =
                 (TextView) findViewById(R.id.texte_dernière_prise_medicament);
 
         Calendar rightNow = Calendar.getInstance();
@@ -82,7 +82,7 @@ public class PriseMedicamentActivity extends AppCompatActivity {
                 texte_pm = texte_pm.concat("\n"+i_pm.toString());
 //                        = texte_pm.append(;
             }
-            texte_dernière_prise_medicament.setText(texte_pm);
+            texte_derniere_prise_medicament.setText(texte_pm);
         }
 
         // C'est pour ajouter une nouvelle prise de médicament

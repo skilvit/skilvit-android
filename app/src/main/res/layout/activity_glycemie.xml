@@ -17,18 +17,12 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/scrollView5">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="46dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
             android:id="@+id/linearLayout_g_date">
 
             <TextView
@@ -36,19 +30,14 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="@string/label_date"
-                android:id="@+id/label_date"
-                android:layout_above="@+id/heure_entree"
-                android:layout_alignParentStart="true" />
+                android:id="@+id/label_date" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:editable="false"
                 android:ems="10"
                 android:id="@+id/date_entree"
-                android:textSize="12sp"
-                android:layout_below="@+id/titre_visu_entree"
-                android:layout_toEndOf="@+id/label_date" />
+                android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -56,17 +45,13 @@
             android:id="@+id/linearLayout_g_heure"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/linearLayout_g_date"
             android:layout_gravity="center_horizontal"
-            android:layout_toStartOf="@+id/linearLayout3"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/label_heure"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/date_entree"
                 android:layout_gravity="center"
                 android:text="@string/label_heure"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -75,8 +60,6 @@
                 android:id="@+id/heure_entree"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/date_entree"
-                android:editable="false"
                 android:ems="10"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -85,9 +68,6 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/linearLayout_g_heure"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
             android:layout_gravity="center"
             android:id="@+id/linearLayout_g_glcemie">
 
@@ -97,9 +77,6 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="@string/texte_glycemie"
                 android:id="@+id/texte_glycemie"
-                android:editable="true"
-                android:layout_below="@+id/linearLayout_p_date"
-                android:layout_centerHorizontal="true"
                 android:layout_gravity="center" />
 
             <EditText
@@ -107,9 +84,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/entree_glycemie"
                 android:enabled="true"
-                android:editable="true"
                 android:layout_gravity="center"
-                android:inputType="numberSigned" />
+                android:inputType="numberSigned"
+                android:autofillHints="" />
 
             <Button
                 style="?android:attr/buttonStyleSmall"
@@ -119,9 +96,8 @@
                 android:id="@+id/bouton_enregistrer"
                 android:clickable="true"
                 android:enabled="true"
-                android:layout_centerVertical="true"
-                android:layout_alignEnd="@+id/texte_glycemie"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:focusable="true" />
 
             <Button
                 android:id="@+id/bouton_liste"
@@ -137,9 +113,8 @@
                 android:id="@+id/bouton_retour"
                 android:clickable="true"
                 android:enabled="true"
-                android:layout_below="@+id/bouton_enregistrer"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:focusable="true" />
         </LinearLayout>
 
         <TextView
@@ -150,7 +125,4 @@
             android:layout_gravity="center_horizontal"/>
 
     </LinearLayout>
-
-
-
 </ScrollView>

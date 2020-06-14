@@ -42,7 +42,7 @@ public class AlimentationActivity extends AppCompatActivity {
     Button bouton_enregistrer;
     Button bouton_afficher_liste;
     Button bouton_retour;
-    TextView texte_dernière_al;
+    TextView texte_derniere_al;
     Alimentation alimentation;
 
     @Override
@@ -59,7 +59,7 @@ public class AlimentationActivity extends AppCompatActivity {
         bouton_enregistrer = (Button) findViewById(R.id.bouton_enregistrer);
         bouton_afficher_liste = findViewById(R.id.bouton_liste);
         bouton_retour = (Button) findViewById(R.id.bouton_retour);
-        texte_dernière_al = (TextView) findViewById(R.id.texte_derniere_al);
+        texte_derniere_al = (TextView) findViewById(R.id.texte_derniere_al);
 
 
         Calendar rightNow = Calendar.getInstance();
@@ -120,7 +120,7 @@ public class AlimentationActivity extends AppCompatActivity {
                 texte_al = texte_al.concat("\n"+i_ap.toString());
 //                        = texte_pm.append(;
             }
-            texte_dernière_al.setText(texte_al);
+            texte_derniere_al.setText(texte_al);
         }
 
 

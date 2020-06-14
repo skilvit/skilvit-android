@@ -35,7 +35,7 @@ public class ActivitePhysiqueActivity extends AppCompatActivity {
     EditText entree_sport;
     EditText entree_duree;
     EditText entree_difficulte_ressentie;
-    TextView texte_dernière_ap;
+    TextView texte_derniere_ap;
     Button bouton_enregistrer;
     Button bouton_afficher_liste;
     Button bouton_retour;
@@ -55,7 +55,7 @@ public class ActivitePhysiqueActivity extends AppCompatActivity {
         bouton_enregistrer = (Button) findViewById(R.id.bouton_enregistrer);
         bouton_afficher_liste = findViewById(R.id.bouton_liste);
         bouton_retour = (Button) findViewById(R.id.bouton_retour);
-        texte_dernière_ap = (TextView) findViewById(R.id.texte_derniere_ap) ;
+        texte_derniere_ap = (TextView) findViewById(R.id.texte_derniere_ap) ;
 
         Calendar rightNow = Calendar.getInstance();
         final int jour = rightNow.get(Calendar.DAY_OF_MONTH);
@@ -114,7 +114,7 @@ public class ActivitePhysiqueActivity extends AppCompatActivity {
                 texte_ap = texte_ap.concat("\n"+i_ap.toString());
 //                        = texte_pm.append(;
             }
-            texte_dernière_ap.setText(texte_ap);
+            texte_derniere_ap.setText(texte_ap);
         }
 
         // C'est pour ajouter une nouvelle prise de médicament

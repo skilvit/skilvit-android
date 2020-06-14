@@ -18,7 +18,8 @@
         android:id="@+id/bouton_exporter_entree_JSON"
         android:layout_gravity="center_horizontal"
         android:enabled="true"
-        android:clickable="true" />
+        android:clickable="true"
+        android:focusable="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -28,7 +29,8 @@
         android:id="@+id/bouton_exporter_entree_PDF"
         android:layout_gravity="center_horizontal"
         android:enabled="true"
-        android:clickable="true" />
+        android:clickable="true"
+        android:focusable="true" />
 
     <Button
         android:id="@+id/bouton_exporter_format_texte"

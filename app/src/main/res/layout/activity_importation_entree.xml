@@ -15,7 +15,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:clickable="true"
-        android:enabled="true" />
+        android:enabled="true"
+        android:focusable="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,5 +34,6 @@
         android:clickable="true"
         android:enabled="true"
         android:layout_below="@+id/texte_etat_importation"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:focusable="true" />
 </RelativeLayout>

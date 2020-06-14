@@ -20,10 +20,10 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:editable="false"
             android:ems="10"
             android:id="@+id/date_entree"
-            android:textSize="12sp"/>
+            android:textSize="12sp"
+            android:autofillHints="" />
 
 
         <TextView
@@ -39,7 +39,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:autofillHints="" />
 
 
         <TextView
@@ -56,9 +57,8 @@
             android:id="@+id/entree_glycemie"
             android:enabled="true"
             android:layout_gravity="center"
-            android:inputType="numberSigned" />
-
-
+            android:inputType="numberSigned"
+            android:autofillHints="" />
 
         <Button
             android:layout_width="fill_parent"

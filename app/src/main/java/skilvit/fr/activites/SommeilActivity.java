@@ -86,8 +86,8 @@ public class SommeilActivity extends AppCompatActivity {
 
         final int heure = rightNow.get(Calendar.HOUR_OF_DAY);
         final int minute = rightNow.get(Calendar.MINUTE);
-        date_entree.setText(jour+"/"+mois+"/"+annee);
-        heure_entree.setText(heure+":"+minute);
+        date_entree.setText(new StringBuilder().append(jour).append("/").append(mois).append("/").append(annee).toString());
+        heure_entree.setText(new StringBuilder().append(heure).append(":").append(minute).toString());
 
         db = new DBManager(SommeilActivity.this);
 //        db.onUpgrade(db.getWritableDatabase(), 3, 4);

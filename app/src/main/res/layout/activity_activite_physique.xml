@@ -12,18 +12,12 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/scrollView5">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="46dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
             android:id="@+id/linearLayout_ap_date">
 
             <TextView
@@ -36,10 +30,11 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:editable="false"
                 android:ems="10"
                 android:id="@+id/date_entree"
-                android:textSize="11sp"/>
+                android:textSize="12sp"
+                android:inputType="date"
+                android:autofillHints="false" />
 
         </LinearLayout>
 
@@ -47,16 +42,13 @@
             android:id="@+id/linearLayout_ap_heure"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/linearLayout_p_date"
             android:layout_gravity="center_horizontal"
-            android:layout_toStartOf="@+id/linearLayout3"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/label_heure"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
                 android:layout_gravity="center"
                 android:text="@string/label_heure"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -66,16 +58,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:textSize="11sp" />
+                android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/linearLayout_ap_heure"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
             android:layout_gravity="center">
 
             <TextView
@@ -84,20 +73,16 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="@string/texte_ap_sport"
                 android:id="@+id/texte_ap_sport"
-                android:editable="true"
-                android:layout_below="@+id/linearLayout_p_date"
-                android:layout_centerHorizontal="true"
                 android:layout_gravity="center" />
 
             <EditText
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/entree_ap_sport"
-                android:enabled="true"
-                android:editable="true"
-                android:layout_above="@+id/entree_ap"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:inputType="textShortMessage" />
+                android:autofillHints=""
+                android:enabled="true"
+                android:inputType="textShortMessage|textLongMessage" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -105,16 +90,12 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="@string/texte_ap_duree"
                 android:id="@+id/texte_ap_duree"
-                android:layout_alignBottom="@+id/entree_ap"
-                android:layout_alignStart="@+id/entree_ap"
-                android:layout_alignEnd="@+id/texte_ap"
-                android:layout_alignTop="@+id/entree_ap"
                 android:layout_gravity="center" />
 
             <EditText
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/entree_ap_duree"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:inputType="textShortMessage" />
 
@@ -127,14 +108,12 @@
                 android:layout_gravity="center" />
 
             <EditText
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/entree_ap_difficulte"
-                android:layout_above="@+id/bouton_enregistrer"
-                android:layout_alignStart="@+id/bouton_enregistrer"
-                android:layout_alignEnd="@+id/bouton_retour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:inputType="textShortMessage" />
+                android:autofillHints=""
+                android:inputType="textMultiLine" />
 
             <Button
                 style="?android:attr/buttonStyleSmall"
@@ -144,9 +123,8 @@
                 android:id="@+id/bouton_enregistrer"
                 android:clickable="true"
                 android:enabled="true"
-                android:layout_centerVertical="true"
-                android:layout_alignEnd="@+id/texte_glycemie"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:focusable="true" />
 
             <Button
                 android:id="@+id/bouton_liste"
@@ -162,9 +140,8 @@
                 android:id="@+id/bouton_retour"
                 android:clickable="true"
                 android:enabled="true"
-                android:layout_below="@+id/bouton_enregistrer"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:focusable="true" />
 
             <TextView
                 android:layout_width="fill_parent"
@@ -173,10 +150,6 @@
                 android:id="@+id/texte_derniere_ap"
                 android:layout_gravity="center_horizontal"/>
         </LinearLayout>
-
     </LinearLayout>
-
-
-
 </ScrollView>
 

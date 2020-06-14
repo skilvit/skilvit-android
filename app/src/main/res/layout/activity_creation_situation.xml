@@ -16,7 +16,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:weightSum="1">
 
@@ -37,8 +37,6 @@
                 android:id="@+id/label_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/heure_entree"
-                android:layout_alignParentStart="true"
                 android:text="@string/label_date"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -46,10 +44,10 @@
                 android:id="@+id/date_entree"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/titre_visu_entree"
-                android:layout_toEndOf="@+id/label_date"
                 android:ems="10"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:autofillHints=""
+                android:inputType="date" />
         </LinearLayout>
 
         <LinearLayout
@@ -62,8 +60,6 @@
                 android:id="@+id/label_heure"
                 android:layout_width="57dp"
                 android:layout_height="32dp"
-                android:layout_below="@+id/date_entree"
-                android:layout_alignParentStart="true"
                 android:text="@string/label_heure"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -71,10 +67,10 @@
                 android:id="@+id/heure_entree"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/date_entree"
-                android:layout_toEndOf="@+id/label_heure"
                 android:ems="10"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:autofillHints=""
+                android:inputType="number" />
 
 
         </LinearLayout>
@@ -89,8 +85,6 @@
                 android:id="@+id/annonce_situation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/heure_entree"
-                android:layout_alignParentStart="true"
                 android:text="@string/entree_situation"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -98,9 +92,7 @@
                 android:id="@+id/entree_situation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/heure_entree"
                 android:layout_margin="5dp"
-                android:layout_toEndOf="@+id/annonce_situation"
                 android:inputType="text"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -115,8 +107,6 @@
                 android:id="@+id/annonce_sensations"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/entree_situation"
-                android:layout_alignParentStart="true"
                 android:text="@string/annonce_emotion_sensation"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -124,11 +114,10 @@
                 android:id="@+id/entree_emotions_sensations"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/entree_situation"
                 android:layout_margin="5dp"
-                android:layout_toEndOf="@+id/annonce_sensations"
                 android:inputType="text"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:autofillHints="" />
         </LinearLayout>
 
         <LinearLayout
@@ -140,8 +129,6 @@
                 android:id="@+id/annonce_intensite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/entree_emotions_sensations"
-                android:layout_alignParentStart="true"
                 android:text="@string/annonce_intensite"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -150,7 +137,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:autofillHints="" />
 
         </LinearLayout>
 
@@ -164,8 +152,6 @@
                 android:id="@+id/annonce_pensees"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/annonce_intensite"
-                android:layout_alignParentStart="true"
                 android:text="@string/annonce_pensee"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -173,9 +159,7 @@
                 android:id="@+id/entree_pensees"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/liste_intensites"
                 android:layout_margin="5dp"
-                android:layout_toEndOf="@+id/entree_situation"
                 android:inputType="text"
                 android:textSize="12sp" />
 
@@ -261,8 +245,6 @@
                 android:id="@+id/annonce_comportement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/annonce_pensees"
-                android:layout_alignParentStart="true"
                 android:text="@string/annonce_comportement"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -270,19 +252,16 @@
                 android:id="@+id/entree_comportement"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/annonce_comportement"
                 android:layout_margin="5dp"
-                android:layout_toEndOf="@+id/annonce_comportement"
                 android:inputType="text"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:autofillHints="" />
         </LinearLayout>
 
         <Button
             android:id="@+id/bouton_enregistrement"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/entree_comportement"
-            android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:text="@string/enregistrer_nouvelle_entree" />
 

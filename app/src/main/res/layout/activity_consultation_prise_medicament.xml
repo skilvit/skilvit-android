@@ -28,7 +28,7 @@
                 android:ems="10"
                 android:id="@+id/date_entree"
                 android:textSize="12sp"
-                android:editable="false"/>
+                android:autofillHints="" />
 
         </LinearLayout>
 
@@ -51,9 +51,9 @@
                 android:id="@+id/heure_entree"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:editable="false"
                 android:ems="10"
-                android:textSize="9sp" />
+                android:textSize="12sp"
+                android:autofillHints="" />
         </LinearLayout>
 
         <LinearLayout
@@ -75,9 +75,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/entree_glycemie"
                 android:enabled="true"
-                android:editable="true"
                 android:layout_gravity="center"
-                android:inputType="textShortMessage" />
+                android:inputType="textShortMessage"
+                android:autofillHints="" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -92,7 +92,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/entree_nourriture"
                 android:layout_gravity="center"
-                android:inputType="textShortMessage" />
+                android:inputType="textShortMessage"
+                android:autofillHints="" />
 
         </LinearLayout>
 

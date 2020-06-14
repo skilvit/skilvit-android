@@ -12,8 +12,6 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="46dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
             android:id="@+id/linearLayout_n_date">
 
             <TextView
@@ -21,19 +19,15 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="@string/label_date"
-                android:id="@+id/label_date"
-                android:layout_above="@+id/heure_entree"
-                android:layout_alignParentStart="true" />
+                android:id="@+id/label_date" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:id="@+id/date_entree"
-                android:editable="false"
-                android:textSize="9sp"
-                android:layout_below="@+id/titre_visu_entree"
-                android:layout_toEndOf="@+id/label_date" />
+                android:textSize="12sp"
+                android:autofillHints="" />
 
         </LinearLayout>
 
@@ -42,9 +36,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/linearLayout_n_heure"
-            android:layout_gravity="center_horizontal"
-            android:layout_below="@+id/linearLayout_n_date"
-            android:layout_toStartOf="@+id/linearLayout3">
+            android:layout_gravity="center_horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -52,8 +44,6 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="@string/label_heure"
                 android:id="@+id/label_heure"
-                android:layout_below="@+id/date_entree"
-                android:layout_alignParentStart="true"
                 android:layout_gravity="center" />
 
             <EditText
@@ -61,10 +51,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:id="@+id/heure_entree"
-                android:editable="false"
-                android:textSize="9sp"
-                android:layout_below="@+id/date_entree"
-                android:layout_toEndOf="@+id/entree_situation" />
+                android:textSize="12sp"
+                android:autofillHints="" />
         </LinearLayout>
 
 
@@ -74,9 +62,6 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/texte_repas"
             android:id="@+id/texte_repas"
-            android:editable="true"
-            android:layout_below="@+id/linearLayout_n_date"
-            android:layout_centerHorizontal="true"
             android:layout_gravity="center" />
 
         <RadioGroup
@@ -122,19 +107,12 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/texte_nourriture"
             android:id="@+id/texte_nourriture"
-            android:layout_alignBottom="@+id/entree_nourriture"
-            android:layout_alignStart="@+id/entree_repas"
-            android:layout_alignEnd="@+id/texte_nourriture"
-            android:layout_alignTop="@+id/entree_repas"
             android:layout_gravity="center" />
 
         <EditText
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/entree_nourriture"
-            android:layout_above="@+id/bouton_enregistrer"
-            android:layout_alignStart="@+id/bouton_enregistrer"
-            android:layout_alignEnd="@+id/bouton_retour"
             android:layout_gravity="center"
             android:inputType="text" />
 
@@ -168,11 +146,5 @@
             android:text="@string/bouton_entree_vers_liste"
             android:id="@+id/bouton_entree_vers_liste" />
 
-
-
-
     </LinearLayout>
-
-
-
 </ScrollView>
