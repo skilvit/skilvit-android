@@ -15,7 +15,7 @@ public class Notice extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice);
         WebView wv = (WebView) findViewById(R.id.wv_notice);
-        wv.loadUrl("https://www.skilvit.fr/tcc/appli/notice");
+        wv.loadUrl("https://www.skilvit.fr/appli/notice");
 
     }
 
